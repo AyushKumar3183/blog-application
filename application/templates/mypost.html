@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block start %}
+<div class="container custom-container">
+    <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown link
+        </a>
+      
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/newpost/">New Post</a></li>
+           <li><a class="dropdown-item" href="/login/">Logout</a></li>
+        </ul>
+      </div>
+    <br><br>
+    <div class="container">
+
+    </div>
+    <br>
+    <div class="container custom-container" style="max-width: 1350px; ">
+        <h1>My Posts </h1>
+        {% for post in posts %}
+        <article class="media content-section">
+
+            <div class="media-body" style="border: 1px solid black; padding: 23px; margin-bottom: 10px;">
+
+                <div class="article-metadata">
+                    <!-- <h3 aligh="left">{{ post.author }} </h3>
+                    <h5 aligh="right">{{ post.date_posted|date:"F d, Y" }}</h5> -->
+                    <h2 class="text-uppercase" style="text-align:left;float:left; color: #000000;">{{ post.author }}</h2>
+                    <h5 style="text-align:right;float:right;">{{ post.date_posted|date:"F d, Y" }}</h5>
+                    <hr style="clear:both;" />
+
+                </div>
+                <h3>{{ post.title }}</h3>
+                <p class="article-content">{{ post.content }}</p>
+                <br><br>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}
